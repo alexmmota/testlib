@@ -333,6 +333,7 @@ Exemplo de utilização do método PSCheckout.logout()
 
 * **
 **Código de Erros**
+
 Abaixo seguem os códigos de erro que podem ser retornados pela biblioteca:
 
 **1009** - SESSION_EXPIRED (Sessão expirada, refaça a operação e realize login novamente.);
