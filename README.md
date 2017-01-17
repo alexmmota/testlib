@@ -407,7 +407,6 @@ Abaixo você vai aprender como é possível customizar a nossa biblioteca.
  
 <!-- Link button -->
 <color name="ps_lib_text_link_button">#D2691E</color>
-
 ```
 
 **UOL - O melhor conteúdo**
