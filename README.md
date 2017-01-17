@@ -133,6 +133,7 @@ Para utilizar a library **Checkout in App** do PagSeguro UOL para Android são n
 * **
 
 **1 - Implementação base**
+
 Antes de realizar as chamadas para realizar pagamento, temos de inicializar a biblioteca. Este processo deve ser realizado uma única vez durante o ciclo de vida da aplicação. Além disso, existem alguns métodos que devem ser chamados e eventos específicos de uma Activity, garantindo que a biblioteca possa controlar e liberar todos os recursos utilizados assim que necessário. Assumindo que sua aplicação utiliza uma Activity com diversos Fragments no processo de venda, você deve efetuar este procedimento conforme o código abaixo:
 
 
@@ -188,6 +189,7 @@ Ao utilizar o código acima você habilita o uso da biblioteca enquanto a Activi
 
 * **
 **2 - Autorização**
+
 Antes de utilizar os demais métodos da biblioteca é de extrema importância passar as configuração para inicialização da Lib Checkout in App.
 
 Configuração de inicialização da Lib:
@@ -213,6 +215,7 @@ Exemplo de inicialização da Lib:
 
 * **
 **3 - Pagamento**
+
 Para realização do pagamento devemos utilizar o método **PSCheckout.pay()**, deve ser passado dois parâmetros nesse método:
 
 **PSCheckoutRequest ->** Objeto que vai conter informações necessárias para o processamento do pagamento;
@@ -270,8 +273,9 @@ Exemplo chamada do método Pay():
  PSCheckout.pay(psCheckoutRequest, psCheckoutListener);
 ```
 
-* **
-**4 -  Listagem de cartões **
+<hr>
+**4 -  Listagem de cartões**
+
 A biblioteca Checkout in App do PagSeguro UOL fornece um gerenciamento de cartões de crédito tendo toda uma criticidade com análise de riscos e fraudes, gerenciando cartões da sua conta PagSeguro por aplicação.
 
 Para acessar a parte de gerenciamento de cartões basta utilizar o método **PSCheckout.showListCards()**
@@ -282,7 +286,7 @@ Exemplo utilização do método:
   PSCheckout.showListCards();
 ```
 
-* **
+<hr>
 **5 -  Cartão Principal **
 A biblioteca trabalha mantendo sempre um cartão de credito definido como principal, esse cartão será utilizado no processo de pagamento acionado pelo método PSCheckout.pay(), para recuperar a informação desse cartão principal utilizamos o método **PSCheckout.getMainCard()**.
 
@@ -307,7 +311,7 @@ Esse método retorna um objeto PSWalletMainCardVO como resposta, contendo os seg
       }
 ```
 
-* **
+<hr>
 **6 -  Logout **
 A Biblioteca Checkout in App fornece um método para logout ao qual limpa a sessão da conta PagSeguro logada da lib.
 
@@ -345,8 +349,8 @@ Abaixo seguem os códigos de erro que podem ser retornados pela biblioteca:
 
 Obs: Para acesso a um ENUM contendo esses erros mapeados utilize a classe: **ErrorCode.java**
 
-* **
-## **Customização dos componentes da Lib. Checkout in App ** ##
+<hr>
+**Customização dos componentes da Lib. Checkout in App **
 
 Com intuito de possibilitar uma ambientalização com o App do parceiro a nossa biblioteca traz um recurso muito prático para customizar nossos componentes.
 A maioria da componentização da nossa biblioteca foi feita seguindo a Guideline do Material Design da Google Android.
@@ -408,4 +412,4 @@ Abaixo você vai aprender como é possível customizar a nossa biblioteca.
 
 © 1996-2015 O melhor conteúdo. Todos os direitos reservados.
 UNIVERSO ONLINE S/A - CNPJ/MF 01.109.184/0001-95 - Av. Brigadeiro Faria Lima, 1.384, São Paulo - SP - CEP 01452-002 
-* **
+<hr>
