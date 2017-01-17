@@ -203,7 +203,7 @@ Configuração de inicialização da Lib:
 Exemplo de inicialização da Lib:
 
 ```java
- //Inicialização a lib com parametros necessarios
+        //Inicialização a lib com parametros necessarios
         PSCheckoutConfig psCheckoutConfig = new PSCheckoutConfig();
         psCheckoutConfig.setSellerEmail(SELLER_EMAIL);
         psCheckoutConfig.setSellerToken(SELLER_TOKEN);
@@ -225,7 +225,7 @@ Para realização do pagamento devemos utilizar o método **PSCheckout.pay()**, 
 Abaixo vamos demonstrar como funciona o objeto PSCheckoutRequest:
 
 ```java
-   //Valor do produto / serviço
+                //Valor do produto / serviço
                 BigDecimal amount = new BigDecimal(1.0);
                 //quantidade de parcelas
                 int quantityParcel = 1;
