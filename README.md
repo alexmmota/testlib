@@ -203,14 +203,14 @@ Configuração de inicialização da Lib:
 Exemplo de inicialização da Lib:
 
 ```java
-        //Inicialização a lib com parametros necessarios
-        PSCheckoutConfig psCheckoutConfig = new PSCheckoutConfig();
-        psCheckoutConfig.setSellerEmail(SELLER_EMAIL);
-        psCheckoutConfig.setSellerToken(SELLER_TOKEN);
-        //Informe o fragment container
-        psCheckoutConfig.setContainer(R.id.fragment_container);
+    //Inicialização a lib com parametros necessarios
+    PSCheckoutConfig psCheckoutConfig = new PSCheckoutConfig();
+    psCheckoutConfig.setSellerEmail(SELLER_EMAIL);
+    psCheckoutConfig.setSellerToken(SELLER_TOKEN);
+    //Informe o fragment container
+    psCheckoutConfig.setContainer(R.id.fragment_container);
 
-        PSCheckout.init(getActivity(), psCheckoutConfig);
+    PSCheckout.init(getActivity(), psCheckoutConfig);
 ```
 
 * **
@@ -225,18 +225,18 @@ Para realização do pagamento devemos utilizar o método **PSCheckout.pay()**, 
 Abaixo vamos demonstrar como funciona o objeto PSCheckoutRequest:
 
 ```java
-                //Valor do produto / serviço
-                BigDecimal amount = new BigDecimal(1.0);
-                //quantidade de parcelas
-                int quantityParcel = 1;
-                //id do produto
-                String productId = "001";
-                //Descrição do produto
-                String description = "Produto Exemplo";
+    //Valor do produto / serviço
+    BigDecimal amount = new BigDecimal(1.0);
+    //quantidade de parcelas
+    int quantityParcel = 1;
+    //id do produto
+    String productId = "001";
+    //Descrição do produto
+    String description = "Produto Exemplo";
 
-                PSCheckoutRequest psCheckoutRequest =
-                        new PSCheckoutRequest().withReferenceCode("123")
-                                .withNewItem(description, String.valueOf(quantityParcel), amount, productId);
+    PSCheckoutRequest psCheckoutRequest =
+            new PSCheckoutRequest().withReferenceCode("123")
+                    .withNewItem(description, String.valueOf(quantityParcel), amount, productId);
 
 ```
 
