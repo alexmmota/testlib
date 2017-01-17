@@ -72,8 +72,7 @@ Importar corretamente as dependências no .gradle;
 * **
 ## **Permissões AndroidManifest.xml** ##
 
-```
-#!xml
+```xml
    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
    <uses-permission android:name="android.permission.INTERNET"/>
    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
@@ -85,35 +84,33 @@ Importar corretamente as dependências no .gradle;
 Via gradle:
 
 ```json
-
 repositories {
 
-        mavenCentral()
+       mavenCentral()
 
         maven {
             url "https://jitpack.io"
         }
 
         maven {
-            credentials {
-                username '<BITBUCKET EMAIL>'
-                password '<BITBUCKET PASSWORD>'
-            }
-            url "https://bitbucket.org/uolinc/checkout-in-app-android/raw/mvn-repo/repository/"
+            url "https://github.com/pagseguro/android-checkout-in-app/raw/master/repositorio"
         }
+
+        jcenter()
 }
 
 
 dependencies {
     ...
     compile 'br.com.uol.pslibs:checkout-in-app:0.0.1'
+    compile 'com.afollestad.material-dialogs:core:0.9.2.3'
     ...
 }
 
 ```
 
 * **
-## **Metodologia** ##
+**Metodologia**
 Vejamos agora como integrar a biblioteca Checkout in App do PagSeguro em seu aplicativo Android.
 
 Para utilizar a library **Checkout in App** do PagSeguro UOL para Android são necessários 6 etapas:
@@ -121,29 +118,24 @@ Para utilizar a library **Checkout in App** do PagSeguro UOL para Android são n
 **1 – Implementação base:** Inicialização da Library e controles  definidos durante o ciclo de vida da Activity;
 
 
-**
-2 – Autorização:** **PSCheckout.init()** - Configurações das credenciais da conta PagSeguro como vendedor na Checkout in App;
+**2 – Autorização:** **PSCheckout.init()** - Configurações das credenciais da conta PagSeguro como vendedor na Checkout in App;
 
 
-**
-3 – Pagamento:** **PSCheckout.pay()** - Para utilizar o método de pagamento deve seguir uma estrutura de parametrização;
+**3 – Pagamento:** **PSCheckout.pay()** - Para utilizar o método de pagamento deve seguir uma estrutura de parametrização;
 
-**
-4 – Listagem de cartões:** **PSCheckout.showListCards()** - A Lib Checkout in App faz gerenciamento dos seus cartões para serem utilizados em sua aplicação especifica, gerenciando todo possível de analise de risco e fraudes de cartões, veja no tópico referente mais informações da utilização desse método;
+**4 – Listagem de cartões:** **PSCheckout.showListCards()** - A Lib Checkout in App faz gerenciamento dos seus cartões para serem utilizados em sua aplicação especifica, gerenciando todo possível de analise de risco e fraudes de cartões, veja no tópico referente mais informações da utilização desse método;
 
-**
-5 – Cartão principal:**  **PSCheckout.getMainCard()** A Lib mantem um cartão definido como cartão principal. Esse cartão será utilizado no processo de pagamento acionado pelo método PSCheckout.pay()
+**5 – Cartão principal:**  **PSCheckout.getMainCard()** A Lib mantem um cartão definido como cartão principal. Esse cartão será utilizado no processo de pagamento acionado pelo método PSCheckout.pay()
 
-**
-6 – Logout:** **PSCheckout.logout()** - Faz logout e apaga dados da sessão do usuário PagSeguro comprador logado na Lib Checkout in App;
+**6 – Logout:** **PSCheckout.logout()** - Faz logout e apaga dados da sessão do usuário PagSeguro comprador logado na Lib Checkout in App;
 
 * **
-## **1 - Implementação base** ##
+
+**1 - Implementação base**
 Antes de realizar as chamadas para realizar pagamento, temos de inicializar a biblioteca. Este processo deve ser realizado uma única vez durante o ciclo de vida da aplicação. Além disso, existem alguns métodos que devem ser chamados e eventos específicos de uma Activity, garantindo que a biblioteca possa controlar e liberar todos os recursos utilizados assim que necessário. Assumindo que sua aplicação utiliza uma Activity com diversos Fragments no processo de venda, você deve efetuar este procedimento conforme o código abaixo:
 
 
-```
-#!java
+```java
 
 public class ExampleActivity extends AppCompatActivity {
 
@@ -190,12 +182,11 @@ public class ExampleActivity extends AppCompatActivity {
         PSCheckout.onDestroy(); //Controle Lib Activity Life Cycle
     }
 }
-
 ```
 Ao utilizar o código acima você habilita o uso da biblioteca enquanto a Activity em que o código reside esteja ativa bastando apenas efetuar as chamadas para as rotinas desejadas, é de extrema importância para o funcionamento da “Library” as chamadas dos métodos do ciclo de vida da Activity apontado no código mostrado acima.
 
 * **
-## **2 - Autorização** ##
+**2 - Autorização**
 Antes de utilizar os demais métodos da biblioteca é de extrema importância passar as configuração para inicialização da Lib Checkout in App.
 
 Configuração de inicialização da Lib:
@@ -207,8 +198,8 @@ Configuração de inicialização da Lib:
 -> (Int) Fragment container );
 
 Exemplo de inicialização da Lib:
-```
-#!java
+
+```java
  //Inicialização a lib com parametros necessarios
         PSCheckoutConfig psCheckoutConfig = new PSCheckoutConfig();
         psCheckoutConfig.setSellerEmail(SELLER_EMAIL);
@@ -220,7 +211,7 @@ Exemplo de inicialização da Lib:
 ```
 
 * **
-## **3 - Pagamento** ##
+**3 - Pagamento**
 Para realização do pagamento devemos utilizar o método **PSCheckout.pay()**, deve ser passado dois parâmetros nesse método:
 
 **PSCheckoutRequest ->** Objeto que vai conter informações necessárias para o processamento do pagamento;
@@ -229,8 +220,7 @@ Para realização do pagamento devemos utilizar o método **PSCheckout.pay()**, 
 
 Abaixo vamos demonstrar como funciona o objeto PSCheckoutRequest:
 
-```
-#!java
+```java
    //Valor do produto / serviço
                 BigDecimal amount = new BigDecimal(1.0);
                 //quantidade de parcelas
@@ -247,8 +237,8 @@ Abaixo vamos demonstrar como funciona o objeto PSCheckoutRequest:
 ```
 
 Agora uma demonstração de utilização do PSCheckout.PSCheckoutListener:
-```
-#!java
+
+```java
 /**
      * PSCheckout listerner
      * Este listener será o ponto focal para validar os resultados de sua transação;
@@ -275,8 +265,7 @@ Agora uma demonstração de utilização do PSCheckout.PSCheckoutListener:
 
 Exemplo chamada do método Pay():
 
-```
-#!java
+```java
  PSCheckout.pay(psCheckoutRequest, psCheckoutListener);
 ```
 
@@ -287,18 +276,18 @@ A biblioteca Checkout in App do PagSeguro UOL fornece um gerenciamento de cartõ
 Para acessar a parte de gerenciamento de cartões basta utilizar o método **PSCheckout.showListCards()**
 
 Exemplo utilização do método:
-```
-#!java
+
+```java
   PSCheckout.showListCards();
 ```
 
 * **
-## **5 -  Cartão Principal ** ##
+**5 -  Cartão Principal **
 A biblioteca trabalha mantendo sempre um cartão de credito definido como principal, esse cartão será utilizado no processo de pagamento acionado pelo método PSCheckout.pay(), para recuperar a informação desse cartão principal utilizamos o método **PSCheckout.getMainCard()**.
 
 Esse método retorna um objeto PSWalletMainCardVO como resposta, contendo os seguintes métodos:
-```
-#!java
+
+```java
    //int getImageResource() -> Retorna uma imagem da bandeira do cartão principal;
    //String getFinalCard() -> Retorna o final do cartão utilizado
 
@@ -318,12 +307,12 @@ Esse método retorna um objeto PSWalletMainCardVO como resposta, contendo os seg
 ```
 
 * **
-## **6 -  Logout ** ##
+**6 -  Logout **
 A Biblioteca Checkout in App fornece um método para logout ao qual limpa a sessão da conta PagSeguro logada da lib.
 
 Exemplo de utilização do método PSCheckout.logout()
-```
-#!java
+
+```java
   //Faz Logout do usuario na libray Checkout in App
   PSCheckout.logout(getActivity());
   //"Your APP" does things
@@ -332,10 +321,11 @@ Exemplo de utilização do método PSCheckout.logout()
   tvFinalCard.setText("Cartão");
   Snackbar.make(getView(), "Logout", Snackbar.LENGTH_SHORT).show();
 ```
+
 **Obs: Os trechos utilizados nesta documentação foram retirados da aplicação de exemplo disponível nesse repositório.**
 
 * **
-## **Código de Erros ** ##
+**Código de Erros **
 Abaixo seguem os códigos de erro que podem ser retornados pela biblioteca:
 
 **1009** - SESSION_EXPIRED (Sessão expirada, refaça a operação e realize login novamente.);
@@ -361,8 +351,7 @@ Com intuito de possibilitar uma ambientalização com o App do parceiro a nossa 
 A maioria da componentização da nossa biblioteca foi feita seguindo a Guideline do Material Design da Google Android.
 Abaixo você vai aprender como é possível customizar a nossa biblioteca.
 
-```
-#!xml
+```xml
 @color/ps_lib_checkbox_color ->	Cor do background do checkbox
 
 @color/ps_lib_checkbox_text_color -> Cor do texto do checkbox
