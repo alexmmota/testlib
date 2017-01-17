@@ -271,7 +271,7 @@ Exemplo chamada do método Pay():
 ```
 
 * **
-## **4 -  Listagem de cartões ** ##
+**4 -  Listagem de cartões **
 A biblioteca Checkout in App do PagSeguro UOL fornece um gerenciamento de cartões de crédito tendo toda uma criticidade com análise de riscos e fraudes, gerenciando cartões da sua conta PagSeguro por aplicação.
 
 Para acessar a parte de gerenciamento de cartões basta utilizar o método **PSCheckout.showListCards()**
