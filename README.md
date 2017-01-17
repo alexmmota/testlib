@@ -287,7 +287,8 @@ Exemplo utilização do método:
 ```
 
 <hr>
-**5 -  Cartão Principal **
+**5 -  Cartão Principal**
+
 A biblioteca trabalha mantendo sempre um cartão de credito definido como principal, esse cartão será utilizado no processo de pagamento acionado pelo método PSCheckout.pay(), para recuperar a informação desse cartão principal utilizamos o método **PSCheckout.getMainCard()**.
 
 Esse método retorna um objeto PSWalletMainCardVO como resposta, contendo os seguintes métodos:
@@ -312,7 +313,8 @@ Esse método retorna um objeto PSWalletMainCardVO como resposta, contendo os seg
 ```
 
 <hr>
-**6 -  Logout **
+**6 -  Logout**
+
 A Biblioteca Checkout in App fornece um método para logout ao qual limpa a sessão da conta PagSeguro logada da lib.
 
 Exemplo de utilização do método PSCheckout.logout()
@@ -330,7 +332,7 @@ Exemplo de utilização do método PSCheckout.logout()
 **Obs: Os trechos utilizados nesta documentação foram retirados da aplicação de exemplo disponível nesse repositório.**
 
 * **
-**Código de Erros **
+**Código de Erros**
 Abaixo seguem os códigos de erro que podem ser retornados pela biblioteca:
 
 **1009** - SESSION_EXPIRED (Sessão expirada, refaça a operação e realize login novamente.);
@@ -350,7 +352,7 @@ Abaixo seguem os códigos de erro que podem ser retornados pela biblioteca:
 Obs: Para acesso a um ENUM contendo esses erros mapeados utilize a classe: **ErrorCode.java**
 
 <hr>
-**Customização dos componentes da Lib. Checkout in App **
+**Customização dos componentes da Lib. Checkout in App**
 
 Com intuito de possibilitar uma ambientalização com o App do parceiro a nossa biblioteca traz um recurso muito prático para customizar nossos componentes.
 A maioria da componentização da nossa biblioteca foi feita seguindo a Guideline do Material Design da Google Android.
