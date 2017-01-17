@@ -4,10 +4,10 @@
 * **
 **Biblioteca Android PagSeguro UOL - Checkout in App Manual de Uso**
 
-* **
+<hr>
    **Histórico de Versões**                                                                                      
    - 0.0.1 : **Versão inicial**  - 13/07/2016
-* **
+ <hr>
 
 **Copyright**
 
@@ -84,8 +84,7 @@ Importar corretamente as dependências no .gradle;
 ## **Instalação** ##
 Via gradle:
 
-```
-#!json
+```json
 
 repositories {
 
@@ -112,7 +111,6 @@ dependencies {
 }
 
 ```
-
 
 * **
 ## **Metodologia** ##
