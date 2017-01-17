@@ -43,6 +43,7 @@ Para realizar transações utilizando a biblioteca é necessária uma conta PagS
 Com a conta PagSeguro criada é necessário ter o Token da conta que será utilizada na configuração como vendedor na Library Checkout in App.
 
 OBTENDO TOKEN DA CONTA PAGSEGURO PARA INTEGRAÇÃO COM API's
+
 Na pagina do ibanking do PagSeguro em sua conta:
 
 1- Click na guia **"Minha Conta"**;
@@ -191,11 +192,11 @@ Antes de utilizar os demais métodos da biblioteca é de extrema importância pa
 
 Configuração de inicialização da Lib:
 
-->(String)Seller Email (E-mail da conta que será utilizado como vendedor);
+• (String)Seller Email (E-mail da conta que será utilizado como vendedor);
 
-->(String)Seller Token (Token da conta que será utilizado como vendedor, foi explicado anteriormente nessa documentação como obter esse token);
+• (String)Seller Token (Token da conta que será utilizado como vendedor, foi explicado anteriormente nessa documentação como obter esse token);
 
--> (Int) Fragment container );
+• (Int) Fragment container );
 
 Exemplo de inicialização da Lib:
 
@@ -239,7 +240,7 @@ Abaixo vamos demonstrar como funciona o objeto PSCheckoutRequest:
 Agora uma demonstração de utilização do PSCheckout.PSCheckoutListener:
 
 ```java
-/**
+     /**
      * PSCheckout listerner
      * Este listener será o ponto focal para validar os resultados de sua transação;
      */
