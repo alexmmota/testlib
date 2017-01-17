@@ -6,7 +6,7 @@
 
 * **
    **Histórico de Versões**                                                                                      
-   - 0.0.1 : **Versão inicial**  - 13/07/2016      
+   - 0.0.1 : **Versão inicial**  - 13/07/2016
 * **
 
 **Copyright**
